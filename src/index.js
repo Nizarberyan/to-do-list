@@ -5,21 +5,23 @@ let taskText;
 inputButton.addEventListener("click", () => {
   taskText = document.querySelector("#taskInput").value;
   const newTask = document.createElement("li");
-
+  const newTaskText = document.createElement("p")
   newTask.className = "p-5 border rounded-md bg-gray-200 flex flex-col gap-6 ";
-  newTask.textContent = taskText;
-  if ((newTask.textContent = "eat")) {
+  newTaskText.textContent = taskText;
+  newTaskText.className = "text-center bg-gray-100 p-4 rounded-md"
+  if ((newTask.textContent == "eat")) {
     window.alert("You Shouldn't put this on a to-do list app");
     window.open("https://www.simplyrecipes.com/recipes/beef_wellington/", "_blank");
   }
   taskList.appendChild(newTask);
+  newTask.append(newTaskText);
 
   const completeBtn = document.createElement("button");
   newTask.appendChild(completeBtn);
   completeBtn.textContent = "complete";
   completeBtn.className = "ml-2 px-3 py-1 bg-green-500 text-white rounded";
   completeBtn.addEventListener("click", () => {
-    newTask.classList.toggle("completed");
+    newTaskText.classList.toggle("completed");
   });
   const unCompleteBtn = document.createElement("button");
   newTask.appendChild(unCompleteBtn);
