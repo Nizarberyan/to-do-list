@@ -5,13 +5,16 @@ let taskText;
 inputButton.addEventListener("click", () => {
   taskText = document.querySelector("#taskInput").value;
   const newTask = document.createElement("li");
-  const newTaskText = document.createElement("p")
+  const newTaskText = document.createElement("p");
   newTask.className = "p-5 border rounded-md bg-gray-200 flex flex-col gap-6 ";
   newTaskText.textContent = taskText;
-  newTaskText.className = "text-center bg-gray-100 p-4 rounded-md"
-  if ((newTask.textContent == "eat")) {
+  newTaskText.className = "text-center bg-gray-100 p-4 rounded-md";
+  if (newTaskText.textContent == "eat") {
     window.alert("You Shouldn't put this on a to-do list app");
-    window.open("https://www.simplyrecipes.com/recipes/beef_wellington/", "_blank");
+    window.open(
+      "https://www.simplyrecipes.com/recipes/beef_wellington/",
+      "_blank"
+    );
   }
   taskList.appendChild(newTask);
   newTask.append(newTaskText);
@@ -28,7 +31,9 @@ inputButton.addEventListener("click", () => {
   unCompleteBtn.textContent = "unComplete";
   unCompleteBtn.className = "ml-2 px-3 py-1 bg-blue-500 text-white rounded";
   unCompleteBtn.addEventListener("click", () => {
-    newTask.classList.toggle("completed");
+    if (newTaskText.classList.contains("completed")) {
+      newTaskText.classList.toggle("completed");
+    }
   });
 
   const deleteButton = document.createElement("button");
