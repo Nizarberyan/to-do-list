@@ -5,9 +5,13 @@ let taskText;
 inputButton.addEventListener("click", () => {
   taskText = document.querySelector("#taskInput").value;
   const newTask = document.createElement("li");
-  
+
   newTask.className = "p-5 border rounded-md bg-gray-200 flex flex-col gap-6 ";
   newTask.textContent = taskText;
+  if ((newTask.textContent = "eat")) {
+    window.alert("You Shouldn't put this on a to-do list app");
+    window.open("https://www.simplyrecipes.com/recipes/beef_wellington/", "_blank");
+  }
   taskList.appendChild(newTask);
 
   const completeBtn = document.createElement("button");
